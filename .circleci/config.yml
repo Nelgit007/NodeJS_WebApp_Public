@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t nodeapp -t nodeapp:latest:${CIRCLE_SHA1} .
+            docker build -t nodeapp -t nelsonosagie/nodeapp:latest:${CIRCLE_SHA1} .
 
       # Push the Docker image to a Docker registry (replace with your own registry)
       - run:
