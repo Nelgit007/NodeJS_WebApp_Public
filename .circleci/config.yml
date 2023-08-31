@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t nodeapp:latest -t osagienelson/nodeapp:latest .
+            docker build -t nodeapp:latest .
             echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
             docker push nelsonosagie/nodeapp:latest
 
