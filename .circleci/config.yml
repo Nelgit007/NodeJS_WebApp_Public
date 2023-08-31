@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t nodeapp:latest -t osagienelson/nodeapp:latest .
+            docker build -t nodeapp:latest -t osagienelson/nodeapp:latest:${CIRCLE_SHA1} .
             echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
             docker push nelsonosagie/nodeapp:latest:${CIRCLE_SHA1}
 
@@ -32,7 +32,7 @@ jobs:
           name: Push Docker Image
           command: |
             echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-            docker push nelsonosagie/nodeapp:latest
+            docker push nelsonosagie/nodeapp:latest:${CIRCLE_SHA1}
 
 # Orchestrate our job run sequence
 workflows:
